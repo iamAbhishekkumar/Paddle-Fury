@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7mpli7wy0xrp"]
+
+[ext_resource type="Texture2D" uid="uid://crhmadab43k6o" path="res://assets/arts/Computer.png" id="1_ns05e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxdaj"]
+size = Vector2(17, 120)
+
+[node name="CPU" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("1_ns05e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nxdaj")
+debug_color = Color(0.682353, 0.498039, 0.180392, 0.419608)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vcl3s0rqhrr3"]
+
+[ext_resource type="Texture2D" uid="uid://bw1lsbmy6kffh" path="res://assets/arts/Ball.png" id="1_1dk5o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0mao2"]
+radius = 15.0
+
+[node name="Ball" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1dk5o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0mao2")

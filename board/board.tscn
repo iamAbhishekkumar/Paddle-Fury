@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpgas1xh0na2y"]
+
+[ext_resource type="Texture2D" uid="uid://cay7qafeiv2k7" path="res://assets/arts/Board.png" id="1_4b8eg"]
+[ext_resource type="Script" path="res://board/board.gd" id="2_lh5rt"]
+[ext_resource type="PackedScene" uid="uid://c8oml6y4e22b" path="res://player/player.tscn" id="3_4vwa2"]
+[ext_resource type="PackedScene" uid="uid://c7mpli7wy0xrp" path="res://cpu/cpu.tscn" id="3_t1wwa"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Board" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.59601, 1.58242)
+texture = ExtResource("1_4b8eg")
+centered = false
+script = ExtResource("2_lh5rt")
+
+[node name="Player" parent="." instance=ExtResource("3_4vwa2")]
+position = Vector2(40, 360)
+
+[node name="CPU" parent="." instance=ExtResource("3_t1wwa")]
+position = Vector2(1240, 360)

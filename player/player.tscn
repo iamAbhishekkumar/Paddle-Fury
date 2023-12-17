@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8oml6y4e22b"]
+
+[ext_resource type="Texture2D" uid="uid://tcjderxuc1m8" path="res://assets/arts/Player.png" id="1_b5jc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io1xe"]
+size = Vector2(16.5, 120)
+
+[node name="Player" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("1_b5jc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_io1xe")
