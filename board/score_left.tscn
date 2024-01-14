@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://kr8h3p0cum6s"]
+[gd_scene load_steps=2 format=3 uid="uid://c53cj8wqto4ac"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhukl"]
-size = Vector2(62.025, 722.555)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am1u4"]
+size = Vector2(64, 720)
 
-[node name="ScoreLeft" type="Area2D"]
+[node name="Score_Left" type="Area2D"]
+position = Vector2(-32, 360)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_dhukl")
-debug_color = Color(0.698039, 0.490196, 0.12549, 0.419608)
+shape = SubResource("RectangleShape2D_am1u4")
+debug_color = Color(0.270588, 0.619608, 0.356863, 0.419608)

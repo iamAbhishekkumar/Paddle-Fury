@@ -1,21 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpgas1xh0na2y"]
+[gd_scene load_steps=13 format=3 uid="uid://dpgas1xh0na2y"]
 
 [ext_resource type="Texture2D" uid="uid://cay7qafeiv2k7" path="res://assets/arts/Board.png" id="1_4b8eg"]
 [ext_resource type="Script" path="res://board/board.gd" id="2_lh5rt"]
 [ext_resource type="PackedScene" uid="uid://c8oml6y4e22b" path="res://player/player.tscn" id="3_4vwa2"]
 [ext_resource type="PackedScene" uid="uid://c7mpli7wy0xrp" path="res://cpu/cpu.tscn" id="3_t1wwa"]
+[ext_resource type="Script" path="res://player/player.gd" id="4_70654"]
+[ext_resource type="PackedScene" uid="uid://cy7m64iw2xt3x" path="res://board/hud.tscn" id="5_d71fj"]
+[ext_resource type="Script" path="res://cpu/cpu.gd" id="6_0lg3o"]
+[ext_resource type="PackedScene" uid="uid://vcl3s0rqhrr3" path="res://ball/ball.tscn" id="7_b6lbk"]
+[ext_resource type="Script" path="res://ball/ball.gd" id="8_trcf0"]
+[ext_resource type="PackedScene" uid="uid://c53cj8wqto4ac" path="res://board/score_left.tscn" id="10_rtue6"]
+[ext_resource type="PackedScene" uid="uid://4lnedhtur6tl" path="res://board/score_right.tscn" id="11_qcifj"]
+[ext_resource type="PackedScene" uid="uid://ci3cgv5xmuuvo" path="res://board/Walls.tscn" id="12_qqu5a"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("2_lh5rt")
 
 [node name="Board" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(1.59601, 1.58242)
 texture = ExtResource("1_4b8eg")
 centered = false
-script = ExtResource("2_lh5rt")
 
 [node name="Player" parent="." instance=ExtResource("3_4vwa2")]
 position = Vector2(40, 360)
+script = ExtResource("4_70654")
 
 [node name="CPU" parent="." instance=ExtResource("3_t1wwa")]
 position = Vector2(1240, 360)
+script = ExtResource("6_0lg3o")
+
+[node name="Ball" parent="." instance=ExtResource("7_b6lbk")]
+position = Vector2(1240, 360)
+collision_mask = 3
+script = ExtResource("8_trcf0")
+
+[node name="Hud" parent="." instance=ExtResource("5_d71fj")]
+
+[node name="Score_Left" parent="." instance=ExtResource("10_rtue6")]
+
+[node name="Score_Right" parent="." instance=ExtResource("11_qcifj")]
+
+[node name="Ball Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Wall_1" parent="." instance=ExtResource("12_qqu5a")]
+
+[connection signal="timeout" from="Ball Timer" to="." method="_on_ball_timer_timeout"]
